@@ -2264,12 +2264,12 @@ h6 {
   }
 }
 
-@media only screen and (min-width: 768px)
+/* @media only screen and (min-width: 768px)
 {
 .cd-intro {
     margin: 0em auto !important;
 }
-}
+} */
 
 /*--------------------------------------------------------------
 # Navigation Menu

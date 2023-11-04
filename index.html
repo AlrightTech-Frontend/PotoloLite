@@ -59,6 +59,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
     
 
     <style>
@@ -241,6 +242,293 @@
 </style>
 
 
+<!-- Slider image start  -->
+         <style>
+        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap");
+
+:root {
+  --cardslide-width: 190px !important;
+  --cardslide-height: 300px;
+  --cardslide-transition-duration: 800ms;
+  --cardslide-transition-easing: ease;
+}
+ 
+
+.maincardslidercirle{
+  width: 100%;
+  height: 110vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+ 
+
+.appslide {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* overflow: hidden; */
+}
+
+.cardslideList {
+  position: absolute;
+  width: calc(3 * var(--cardslide-width));
+  height: auto;
+}   
+
+.cardslideList__btn {
+  --btn-size: 35px;
+  width: var(--btn-size);
+  height: var(--btn-size);
+  position: absolute;
+  top: 50%;
+  z-index: 100;
+}
+
+ 
+
+.cardslideList .cardslides__wrappslideer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+}
+
+.cardslide {
+  --cardslide-translateY-offset: 100vh;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) translateX(var(--cardslide-translateX-offset))
+    translateY(var(--cardslide-translateY-offset)) rotateY(var(--cardslide-rotation-offset))
+    scale(var(--cardslide-scale-offset));
+  display: inline-block;
+  width: var(--cardslide-width);
+  height: var(--cardslide-height);
+  transition: transform var(--cardslide-transition-duration) var(--cardslide-transition-easing);
+  user-select: none;
+}
+
+.cardslide::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  mix-blend-mode: darken;
+  /* background: #000;
+  z-index: 1;
+  transition: opacity var(--cardslide-transition-duration) var(--cardslide-transition-easing);
+  opacity: calc(1 - var(--opacity)); */
+}
+
+.cardslide__image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.cardslide__image img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 90%;
+  mix-blend-mode: darken !important;
+}
+
+.cardslide.current--cardslide {
+  --current-cardslide-rotation-offset: 0;
+  --cardslide-translateX-offset: 0;
+  --cardslide-rotation-offset: var(--current-cardslide-rotation-offset);
+  --cardslide-scale-offset: 1.2;
+  --opacity: 0.8;
+}
+
+.cardslide.previous--cardslide {
+  --cardslide-translateX-offset: calc(-1 * var(--cardslide-width) * 1.1);
+  --cardslide-rotation-offset: 25deg;
+}
+
+.cardslide.next--cardslide {
+  --cardslide-translateX-offset: calc(var(--cardslide-width) * 1.1);
+  --cardslide-rotation-offset: -25deg;
+}
+
+.cardslide.previous--cardslide,
+.cardslide.next--cardslide {
+  --cardslide-scale-offset: 0.9;
+  --opacity: 0.4;
+}
+
+.infoslideListslide {
+  position: absolute;
+  width: calc(3 * var(--cardslide-width));
+  height: var(--cardslide-height);
+  pointer-events: none;
+}
+
+.infoslideListslide .infoslide__wrappslideer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.infoslide {
+  margin-bottom: calc(var(--cardslide-height) / 8);
+  margin-left: calc(var(--cardslide-width) / 1.5);
+  transform: translateZ(2rem);
+  transition: transform var(--cardslide-transition-duration) var(--cardslide-transition-easing);
+}
+
+.infoslide .text {
+  position: relative;
+  font-family: "Montserrat";
+  font-size: calc(var(--cardslide-width) * var(--text-size-offset, 0.2));
+  white-space: nowrap;
+  color: #fff;
+  width: fit-content;
+}
+
+.infoslide .name,
+.infoslide .location {
+  text-transform: uppercase;
+}
+
+.infoslide .location {
+  font-weight: 800;
+  --mg-left: 40px;
+  --text-size-offset: 0.12;
+  margin-left: var(--mg-left);
+  margin-bottom: calc(var(--mg-left) / 2);
+  padding-bottom: 0.8rem;
+}
+
+.infoslide .location::before,
+.infoslide .location::after {
+  content: "";
+  position: absolute;
+  background: #fff;
+  left: 0%;
+  transform: translate(calc(-1 * var(--mg-left)), -50%);
+}
+
+.infoslide .location::before {
+
+  top: 50%;
+  width: 20px;
+  height: 5px;
+}
+
+.infoslide .location::after {
+  bottom: 0;
+  width: 60px;
+  height: 2px;
+}
+
+.infoslide .description {
+  --text-size-offset: 0.065;
+  font-weight: 500;
+}
+
+.infoslide.current--infoslide {
+  opacity: 1;
+  display: block;
+}
+
+.infoslide.previous--infoslide,
+.infoslide.next--infoslide {
+  opacity: 0;
+  display: none;
+}
+
+.loading__wrappslideer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  z-index: 200;
+}
+
+.loading__wrappslideer .loader--text {
+  color: #fff;
+  font-family: "Montserrat";
+  font-weight: 500;
+  margin-bottom: 1.4rem;
+}
+
+.loading__wrappslideer .loader {
+  position: relative;
+  width: 200px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.loading__wrappslideer .loader span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(255, 0, 0);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+@media only screen and (min-width: 800px) {
+  :root {
+    --cardslide-width: 250px;
+    --cardslide-height: 400px;
+  }
+}
+
+.support {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 10px;
+  display: flex;
+}
+
+.support a {
+  margin: 0 10px;
+  color: #fff;
+  font-size: 1.8rem;
+  backface-visibility: hidden;
+  transition: all 150ms ease;
+}
+
+.support a:hover {
+  transform: scale(1.1);
+}
+
+    </style>
+<!-- Slider image End  -->
+ 
     
   </head>
 
@@ -283,7 +571,7 @@
             class="row fullscreen d-flex align-items-center justify-content-between">
             <div class="home-banner-content col-lg-6 col-md-6"
               data-aos="fade-down"
-              data-aos-duration="1000">
+              data-aos-duration="3000" data-aos-delay="3000">
               <section class="cd-intro sectionC">
                 <h1 class="cd-headline clip is-full-width">
                   <span>Be POTOLO:</span>
@@ -328,14 +616,79 @@
             </div>
               </section>
             </div>
-            <div class="banner-img col-lg-6 col-md-6 pt-5"
-              data-aos="fade-up"
-              data-aos-duration="1500">
-              <img
+            <div class="col-lg-6 col-md-6 pt-5"
+              >
+              <!-- <img
                 class="img-fluid"
                 src="./img/homebannermockup.png"
                 style="width: 100%"
-                alt />
+                alt /> -->
+
+        <div class="maincardslidercirle">
+
+            <div class="appslide">
+
+                <div class="cardslideList">
+                    <button class="cardslideList__btn btn btn--left">
+                        <div class="iconslide">
+                            <svg>
+                                <use xlink:href="#arrow-left"></use>
+                            </svg>
+                        </div>
+                    </button>
+
+                    <div class="cardslides__wrappslideer">
+                        <div class="cardslide current--cardslide">
+                            <div class="cardslide__image">
+                                 <img class="img-fluid" src="./img/DDFmockup/ddf1.png" alt="">
+                            </div>
+                        </div>
+
+                        <div class="cardslide next--cardslide">
+                            <div class="cardslide__image">
+                                <img class="img-fluid" src="./img/RidelMockup/Playful &amp; Aesthetic iPhone Mockup Instagram Story (1).png" alt="">
+                            </div>
+                        </div>
+
+                        <div class="cardslide previous--cardslide">
+                            <div class="cardslide__image">
+                                <img class="img-fluid" src="./img/Wokermockup/worker1.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="cardslideList__btn btn btn--right">
+                        <div class="iconslide">
+                            <svg>
+                                <use xlink:href="#arrow-right"></use>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+
+                <div class="infoslideListslide">
+                    <div class="infoslide__wrappslideer">
+                        <div class="infoslide current--infoslide">
+                        </div>
+                        <div class="infoslide next--infoslide">
+                        </div>
+                        <div class="infoslide previous--infoslide">
+                        </div>
+                    </div>
+                </div>
+                <div class="appslide__bg">
+                    <div class="appslide__bg__image current--image">
+                    </div>
+                    <div class="appslide__bg__image next--image">
+                    </div>
+                    <div class="appslide__bg__image previous--image">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+                
             </div>
           
           </div>
@@ -1415,51 +1768,390 @@
       });
     </script>
 
-
-<script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
+ <script src="https://unpkg.co/gsap@3/dist/gsap.min.js"></script>
 <script>
-    const tl = gsap.timeline();
+  const tl = gsap.timeline();
 
-tl.to("body", {
-  overflow: "hidden"
-})
-  .to(".preloader .text-container", {
-    duration: 0,
-    opacity: 1,
-    ease: "Power3.easeOut"
+  tl.to("body", {
+    overflow: "hidden"
   })
-  .from(".preloader .text-container h1", {
-    duration: 1.5,
-    delay: 0.5,
-    y: 70,
-    skewY: 10,
-    stagger: 0.4,
-    ease: "Power3.easeOut"
+    .to(".preloader .text-container", {
+      duration: 0.2,  // Decreased duration for faster appearance
+      opacity: 1,
+      ease: "Power3.easeOut"
+    })
+    .from(".preloader .text-container h1", {
+      duration: 0.8,   // Decreased duration for faster appearance
+      delay: 0.2,
+      y: 70,
+      skewY: 10,
+      stagger: 0.2,
+      ease: "Power3.easeOut"
+    })
+    .to(".preloader .text-container h1", {
+      duration: 0.5,  // Decreased duration for faster disappearance
+      y: 70,
+      skewY: -20,
+      stagger: 0.1,
+      ease: "Power3.easeOut"
+    })
+    .to(".preloader", {
+      duration: 0.8,   // Decreased duration for faster disappearance
+      height: "0vh",
+      ease: "Power3.easeOut"
+    })
+    .to(
+      "body",
+      {
+        overflow: "auto"
+      },
+      "-=2"
+    )
+    .to(".preloader", {
+      display: "none"
+    });
+
+
+
+    
+</script>
+
+
+
+
+
+
+
+<!-- Slider Start  -->
+
+
+
+        <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.3/gsap.min.js"></script>
+
+        <script>
+
+
+
+    console.clear();
+
+    const { gsap, imagesLoaded } = window;
+
+    const buttons = {
+      prev: document.querySelector(".btn--left"),
+      next: document.querySelector(".btn--right"),
+    };
+    const cardslidesContainerEl = document.querySelector(".cardslides__wrappslideer");
+    const appslideBgContainerEl = document.querySelector(".appslide__bg");
+
+    const cardslideinfoslidesContainerEl = document.querySelector(".infoslide__wrappslideer");
+
+    // Add an interval to simulate automatic scrolling
+    const scrollInterval = 3000; // Set the interval time in milliseconds
+    let autoScrollTimer;
+
+    function startAutoScroll() {
+      autoScrollTimer = setInterval(() => {
+        // Simulate a click on the "next" button to scroll to the next cardslide
+        buttons.next.click();
+      }, scrollInterval);
+    }
+
+    function stopAutoScroll() {
+      clearInterval(autoScrollTimer);
+    }
+
+    // Start auto-scrolling when the page loads
+    startAutoScroll();
+
+    // Stop auto-scrolling when the user interacts with the cardslides
+    cardslidesContainerEl.addEventListener("pointermove", stopAutoScroll);
+
+    // Resume auto-scrolling when the user stops interacting with the cardslides
+    cardslidesContainerEl.addEventListener("pointerout", startAutoScroll);
+
+
+
+
+//     console.clear();
+
+// const { gsap, imagesLoaded } = window;
+
+// const buttons = {
+//   prev: document.querySelector(".btn--left"),
+//   next: document.querySelector(".btn--right"),
+// };
+// const cardslidesContainerEl = document.querySelector(".cardslides__wrappslideer");
+// const appslideBgContainerEl = document.querySelector(".appslide__bg");
+
+// const cardslideinfoslidesContainerEl = document.querySelector(".infoslide__wrappslideer");
+
+buttons.next.addEventListener("click", () => swapcardslides("right"));
+buttons.prev.addEventListener("click", () => swapcardslides("left"));
+
+
+function swapcardslides(direction) {
+  const currentcardslideEl = cardslidesContainerEl.querySelector(".current--cardslide");
+  const previouscardslideEl = cardslidesContainerEl.querySelector(".previous--cardslide");
+  const nextcardslideEl = cardslidesContainerEl.querySelector(".next--cardslide");
+  const currentBgImageEl = appslideBgContainerEl.querySelector(".current--image");
+  const previousBgImageEl = appslideBgContainerEl.querySelector(".previous--image");
+  const nextBgImageEl = appslideBgContainerEl.querySelector(".next--image");
+  changeinfoslide(direction);
+  swapcardslidesClass();
+  removecardslideEvents(currentcardslideEl);
+  function swapcardslidesClass() {
+    currentcardslideEl.classList.remove("current--cardslide");
+    previouscardslideEl.classList.remove("previous--cardslide");
+    nextcardslideEl.classList.remove("next--cardslide");
+    currentBgImageEl.classList.remove("current--image");
+    previousBgImageEl.classList.remove("previous--image");
+    // nextBgImageEl.classList.remove("next--image");
+    currentcardslideEl.style.zIndex = "50";
+    currentBgImageEl.style.zIndex = "-2";
+    if (direction === "right") {
+      previouscardslideEl.style.zIndex = "20";
+      nextcardslideEl.style.zIndex = "30";
+
+      nextBgImageEl.style.zIndex = "-1";
+
+      currentcardslideEl.classList.add("previous--cardslide");
+      previouscardslideEl.classList.add("next--cardslide");
+      nextcardslideEl.classList.add("current--cardslide");
+
+      currentBgImageEl.classList.add("previous--image");
+      previousBgImageEl.classList.add("next--image");
+      nextBgImageEl.classList.add("current--image");
+    } else if (direction === "left") {
+      previouscardslideEl.style.zIndex = "30";
+      nextcardslideEl.style.zIndex = "20";
+
+      previousBgImageEl.style.zIndex = "-1";
+
+      currentcardslideEl.classList.add("next--cardslide");
+      previouscardslideEl.classList.add("current--cardslide");
+      nextcardslideEl.classList.add("previous--cardslide");
+
+      currentBgImageEl.classList.add("next--image");
+      previousBgImageEl.classList.add("current--image");
+      nextBgImageEl.classList.add("previous--image");
+    }
+  }
+}
+
+function changeinfoslide(direction) {
+  let currentinfoslideEl = cardslideinfoslidesContainerEl.querySelector(".current--infoslide");
+  let previousinfoslideEl = cardslideinfoslidesContainerEl.querySelector(".previous--infoslide");
+  let nextinfoslideEl = cardslideinfoslidesContainerEl.querySelector(".next--infoslide");
+
+  gsap.timeline()
+    .to([buttons.prev, buttons.next], {
+    duration: 0.2,
+    opacity: 0.5,
+    pointerEvents: "none",
   })
-  .to(".preloader .text-container h1", {
-    duration: 1.2,
-    y: 70,
-    skewY: -20,
-    stagger: 0.2,
-    ease: "Power3.easeOut"
-  })
-  .to(".preloader", {
-    duration: 1.5,
-    height: "0vh",
-    ease: "Power3.easeOut"
-  })
-  .to(
-    "body",
+    .to(
+    currentinfoslideEl.querySelectorAll(".text"),
     {
-      overflow: "auto"
+      duration: 0.4,
+      stagger: 0.1,
+      translateY: "-120px",
+      opacity: 0,
     },
-    "-=2"
+    "-="
   )
-  .to(".preloader", {
-    display: "none"
+    .call(() => {
+    swapinfoslidesClass(direction);
+  })
+    .call(() => initcardslideEvents())
+    .fromTo(
+    direction === "right"
+    ? nextinfoslideEl.querySelectorAll(".text")
+    : previousinfoslideEl.querySelectorAll(".text"),
+    {
+      opacity: 0,
+      translateY: "40px",
+    },
+    {
+      duration: 0.4,
+      stagger: 0.1,
+      translateY: "0px",
+      opacity: 1,
+    }
+  )
+    .to([buttons.prev, buttons.next], {
+    duration: 0.2,
+    opacity: 1,
+    pointerEvents: "all",
   });
 
+   
+}
+
+function updatecardslide(e) {
+  const cardslide = e.currentTarget;
+  const box = cardslide.getBoundingClientRect();
+  const centerPosition = {
+    x: box.left + box.width / 2,
+    y: box.top + box.height / 2,
+  };
+  let angle = Math.atan2(e.pageX - centerPosition.x, 0) * (35 / Math.PI);
+  gsap.set(cardslide, {
+    "--current-cardslide-rotation-offset": `${angle}deg`,
+  });
+  const currentinfoslideEl = cardslideinfoslidesContainerEl.querySelector(".current--infoslide");
+  gsap.set(currentinfoslideEl, {
+    rotateY: `${angle}deg`,
+  });
+}
+
+function resetcardslideTransforms(e) {
+  const cardslide = e.currentTarget;
+  const currentinfoslideEl = cardslideinfoslidesContainerEl.querySelector(".current--infoslide");
+  gsap.set(cardslide, {
+    "--current-cardslide-rotation-offset": 0,
+  });
+  gsap.set(currentinfoslideEl, {
+    rotateY: 0,
+  });
+}
+
+function initcardslideEvents() {
+  const currentcardslideEl = cardslidesContainerEl.querySelector(".current--cardslide");
+  currentcardslideEl.addEventListener("pointermove", updatecardslide);
+  currentcardslideEl.addEventListener("pointerout", (e) => {
+    resetcardslideTransforms(e);
+  });
+}
+
+initcardslideEvents();
+
+function removecardslideEvents(cardslide) {
+  cardslide.removeEventListener("pointermove", updatecardslide);
+}
+
+function init() {
+
+  let tl = gsap.timeline();
+
+  tl.to(cardslidesContainerEl.children, {
+    delay: 0.15,
+    duration: 0.5,
+    stagger: {
+      ease: "power4.inOut",
+      from: "right",
+      amount: 0.1,
+    },
+    "--cardslide-translateY-offset": "0%",
+  })
+    .to(cardslideinfoslidesContainerEl.querySelector(".current--infoslide").querySelectorAll(".text"), {
+    delay: 0.5,
+    duration: 0.4,
+    stagger: 0.1,
+    opacity: 1,
+    translateY: 0,
+  })
+    .to(
+    [buttons.prev, buttons.next],
+    {
+      duration: 0.4,
+      opacity: 1,
+      pointerEvents: "all",
+    },
+    "-=0.4"
+  );
+}
+
+const waitForImages = () => {
+  const images = [...document.querySelectorAll("img")];
+  const totalImages = images.length;
+  let loadedImages = 0;
+  const loaderEl = document.querySelector(".loader span");
+
+
+
+
+  function init() {
+  let tl = gsap.timeline();
+
+  tl.to(cardslidesContainerEl.children, {
+    delay: 3, // Add a 0.5-second delay before sliding up
+    duration: 0.5,
+    stagger: {
+      ease: "power4.inOut",
+      from: "right",
+      amount: 0.1,
+    },
+    "--cardslide-translateY-offset": "0%",
+  })
+  .to(cardslideinfoslidesContainerEl.querySelector(".current--infoslide").querySelectorAll(".text"), {
+    delay: 0.5, // Add a 0.5-second delay before showing the info slides
+    duration: 0.4,
+    stagger: 0.1,
+    opacity: 1,
+    translateY: 0,
+  })
+  .to([buttons.prev, buttons.next], {
+    duration: 0.4,
+    opacity: 1,
+    pointerEvents: "all",
+  }, "-=0.4");
+}
+  // gsap.set(cardslidesContainerEl.children, {
+  //   "--cardslide-translateY-offset": "100vh",
+  // });
+  // gsap.set(cardslideinfoslidesContainerEl.querySelector(".current--infoslide").querySelectorAll(".text"), {
+  //   translateY: "40px",
+  //   opacity: 0,
+
+  // });
+  // gsap.set([buttons.prev, buttons.next], {
+  //   pointerEvents: "none",
+  //   opacity: "0",
+  // });
+
+
+  images.forEach((image) => {
+    imagesLoaded(image, (instance) => {
+      if (instance.isComplete) {
+        loadedImages++;
+        let loadProgress = loadedImages / totalImages;
+
+        gsap.to(loaderEl, {
+          duration: 1,
+          scaleX: loadProgress,
+          backgroundColor: `hsl(${loadProgress * 120}, 100%, 50%`,
+        });
+
+        if (totalImages == loadedImages) {
+          gsap.timeline()
+            .to(".loading__wrappslideer", {
+            duration: 0.8,
+            opacity: 0,
+            pointerEvents: "none",
+          })
+            .call(() => init());
+        }
+      }
+    });
+  });
+};
+
+waitForImages();
+
+
+
+
+
+
+
+
+
+
 </script>
+
+
 
 
   </body>
