@@ -2514,7 +2514,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .home-banner-area {
   /* background: url(../img/home-banner-bg.jpg) center; */
-  background: url("../img/homebanner.png") center;
+  background: url("../img/homebanner3.png") center;
   background-size: cover;
 
 }
@@ -2611,21 +2611,21 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .home-banner-content h1 {
-  font-size: 60px;
+  font-size: 28px !important;
   margin-bottom: 25px;
 }
 
-@media (max-width: 991.98px) {
+/* @media (max-width: 991.98px) {
   .home-banner-content h1 {
     font-size: 36px;
   }
-}
+} */
 
-@media (max-width: 1199.98px) {
+/* @media (max-width: 1199.98px) {
   .home-banner-content h1 {
     font-size: 35px;
   }
-}
+} */
 
 @media (max-width: 767px) {
   .home-banner-content h1 {
@@ -4739,7 +4739,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .logos {
   position: absolute;
- top: 13rem;
+ top: 14rem;
  left: 0px;
   
 }
@@ -4749,8 +4749,10 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 .menu-active a {
+  font-weight: 900 !important;
+  font-size: 18px !important;
   /* color: #000; */
-  font-style: italic;
+  /* font-style: italic; */
 }
 
 .header-scrolled {
