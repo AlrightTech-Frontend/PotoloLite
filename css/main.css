@@ -2946,7 +2946,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   position: relative;
 }
 
-.screenshot-area .container:after {
+/* .screenshot-area .container:after {
   content: '';
   position: absolute;
   top: 20%;
@@ -2959,7 +2959,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   background: -ms-linear-gradient(to bottom left, transparent 0%, transparent 50%, #f8fcff 50%, #fcfdff 100%);
   background: -o-linear-gradient(to bottom left, transparent 0%, transparent 50%, #f8fcff 50%, #fcfdff 100%);
   z-index: -1;
-}
+} */
 
 @media (max-width: 991px) {
   .screenshot-area .container:after {
@@ -4739,7 +4739,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 .logos {
   position: absolute;
- top: 14rem;
+ top: 17rem;
  left: 0px;
   
 }
