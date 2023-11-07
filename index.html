@@ -568,27 +568,27 @@ button {
 
     <!-- start banner Area -->
     <section class="position-relative">
-      <div class="container-xxl home-banner-area">
+      <div class="container-fluid home-banner-area">
         <div class="px-sm-3 mx-sm-3 px-md-5 mx-md-5">
-          <div
-            class="row fullscreen d-flex align-items-center justify-content-between">
+          <div class="row fullscreen d-flex align-items-center justify-content-between">
             <div class="home-banner-content col-lg-6 col-md-6"
                os="fade-down"
                os-duration="3000"  os-delay="3000">
+
               <section class="cd-intro sectionC">
                 <h1 class="cd-headline clip is-full-width">
                   <span>Be POTOLO & </span>
                   <span class="cd-words-wrapper">
 
-                     <b class="is-visible">Order Food </b>
- <b>Request a Ride</b>
- <b>Call a Handyman  </b>
- <b>Send your Parcel </b>
- <b>Request a  Dry Cleaner  </b>
- <b>Take care of your health </b>
- <b>Track your kids' school bus  </b>
- <b>Share or backup your files</b>
- <b>Buy or Sell  from the communit</b>
+                    <b class="is-visible">Order Food </b>
+                    <b>Request a Ride</b>
+                    <b>Call a Handyman  </b>
+                    <b>Send your Parcel </b>
+                    <b>Request a  Dry Cleaner  </b>
+                    <b>Take care of your health </b>
+                    <b>Track your kids' school bus  </b>
+                    <b>Share or backup your files</b>
+                    <b>Buy or Sell  from the communit</b>
                     <!-- <b class="is-visible">resteez</b>
                     <b>ridal </b>
                     <b>Yfitness</b>
@@ -599,17 +599,7 @@ button {
                   </span>
                 </h1>
 
-              <!-- <div class="likedownload">
-                 <div class="mainlikedownload">
-                 <img src="./img/likebutton (2).png" alt="" >
-
-                 <div>
-                <h5 class="px-3 pt-2">Download</h5>
-               </div>
-               </div>
-               
-              </div> -->
-                <div class="logos d-flex">
+                <div class="mb-5 logos d-flex">
               <a href="#">
 
                 <div class=" brandIcon ms-2">
@@ -628,7 +618,7 @@ button {
                   style="font-size: 40px"></i>
               </div>
              </a>
-            </div>
+                </div>
               </section>
             </div>
             <div class="col-lg-6 col-md-6 pt-5"
@@ -639,7 +629,7 @@ button {
                 style="width: 100%"
                 alt /> -->
 
-        <div class="maincardslidercirle">
+        <div class="maincardslidercirle mt-5 mt-md-0">
 
             <div class="appslide">
 
@@ -946,8 +936,8 @@ button {
               images, and more with ease. Say goodbye to email attachments and
               embrace the future of hassle-free file sharing.
             </p>
-            <div class="download-button d-flex flex-row justify-content-start">
-              <div class="buttons flex-row d-flex">
+            <div class="download-button d-flex flex-row justify-content-start flex-wrap">
+              <div class="buttons flex-row d-flex mb-4">
                 <i class="fa fa-apple" aria-hidden="true"></i>
                 <div class="desc">
                   <a href="#">
@@ -1035,8 +1025,8 @@ button {
       </div>
     </section>
 
-    <section class="py-2 py-lg-5">
-      <div class="container">
+    <section class="py-2 py-lg-5 ">
+      <div class="container mb-5 pb-5">
         <div class="row align-items-center">
           <div
             class="col-lg-6 home-about-left order-1 order-lg-0 abputimgsetting"
@@ -1321,7 +1311,7 @@ button {
             </div>
           </div>
         </div>
-        <div class="row">
+        <div class="row mb-3 mb-md-5 pb-md-5">
           <div class="owl-carousel owl-screenshot">
             <div class="single-screenshot">
               <!-- <img class="img-fluid" src="img/screenshots/s1.jpg" alt> -->
@@ -1357,11 +1347,11 @@ button {
 
     <!-- Start Footer Area -->
 
-    <footer class=" text-center text-lg-start" style="background-color: #222222;">
+    <footer class=" text-center text-lg-start" style="background-color: #41B15B;">
   <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+  <div class="text-center p-3 text-white" style="background-color: rgba(0, 0, 0, 0.2);">
     © 2023 Copyright:
-    <a class="text-dark" href="https://mdbootstrap.com/">Ptolo Lite</a>
+    <a class="text-white" href="https://mdbootstrap.com/">Potolo Lite</a>
   </div>
   <!-- Copyright -->
 </footer>
@@ -1445,12 +1435,12 @@ button {
     overflow: "hidden"
   })
     .to(".preloader .text-container", {
-      duration: 0.2,  // Decreased duration for faster appearance
+      duration: 0.2,   
       opacity: 1,
       ease: "Power3.easeOut"
     })
     .from(".preloader .text-container h1", {
-      duration: 0.8,   // Decreased duration for faster appearance
+      duration: 0.8,   
       delay: 0.2,
       y: 70,
       skewY: 10,
@@ -1458,14 +1448,14 @@ button {
       ease: "Power3.easeOut"
     })
     .to(".preloader .text-container h1", {
-      duration: 0.5,  // Decreased duration for faster disappearance
+      duration: 0.5,   
       y: 70,
       skewY: -20,
       stagger: 0.1,
       ease: "Power3.easeOut"
     })
     .to(".preloader", {
-      duration: 0.8,   // Decreased duration for faster disappearance
+      duration: 0.8,   
       height: "0vh",
       ease: "Power3.easeOut"
     })
