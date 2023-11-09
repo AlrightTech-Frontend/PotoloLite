@@ -298,7 +298,12 @@ th {
 .mt-50 {
   margin-top: 50px;
 }
-
+@media only screen and (max-width: 574px) {
+  .headFont{
+    font-size: 15px !important;
+  }
+}
+ 
 .mt-60 {
   margin-top: 60px;
 }
@@ -4742,6 +4747,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #1AB33E;
   width: 60px;
   height: 60px;
+  background-color: lightcyan;
   text-align: center;
 
 }
@@ -4751,6 +4757,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #fff;
   transition: 0.5s;
 }
+ 
 
 .logos {
   position: absolute;
